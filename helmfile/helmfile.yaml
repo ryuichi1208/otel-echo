@@ -6,4 +6,4 @@ releases:
 - name: argocd
   namespace: argocd
   chart: argo/argo-cd
-  version: 4.10.9
+  version: 4.3.1
