@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"os"
 	"time"
@@ -18,6 +19,7 @@ import (
 var tracer = otel.Tracer("otel-echo")
 
 func initProvider(ctx context.Context) func() {
+	fmt.Println("this1")
 	// リソース情報（プロセス、ホスト、サービス名など）を設定
 	res, err := resource.New(ctx,
 		resource.WithFromEnv(),

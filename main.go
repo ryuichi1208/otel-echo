@@ -33,6 +33,7 @@ func main() {
 
 	e.GET("/", hello)
 	e.GET("/2", hello2)
+	e.GET("/3", hello3)
 
 	// 引数で渡したポートでサーバーを起動する
 	port, _ := strconv.Atoi(os.Args[1])
@@ -57,6 +58,12 @@ func hello2(c echo.Context) error {
 	time.Sleep(1 * time.Second)
 	c2.Add(c.Request().Context(), 1, 2)
 	return c.String(http.StatusNotFound, "Hello, World!2")
+}
+
+func hello3(c echo.Context) error {
+	_, span := tracer.Start(c.Request().Context(), "getUser")
+	defer span.End()
+	return c.String(http.StatusNotFound, "Hello, World!3")
 }
 
 func httpRequest(ctx context.Context) error {
