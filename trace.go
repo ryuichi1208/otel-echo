@@ -90,4 +90,6 @@ func initProvider(ctx context.Context) func() {
 			otel.Handle(err)
 		}
 	}
+
+	// fix コメント
 }
